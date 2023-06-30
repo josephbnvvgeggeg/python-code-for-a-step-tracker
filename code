@@ -1,0 +1,32 @@
+class StepTracker:
+    def __init__(self):
+        self.total_steps = 0
+        self.days = 0
+        self.steps = []
+
+    def add_steps(self, num_steps):
+        self.steps.append(num_steps)
+        self.total_steps += num_steps
+        self.days += 1
+
+    def average_steps(self):
+        if self.days == 0:
+            return 0
+        return self.total_steps / self.days
+
+    def total_steps_taken(self):
+        return self.total_steps
+
+    def days_tracked(self):
+        return self.days
+
+
+tracker = StepTracker()
+
+tracker.add_steps(5000)
+tracker.add_steps(6000)
+tracker.add_steps(4500)
+
+print("Total steps taken:", tracker.total_steps_taken())
+print("Days tracked:", tracker.days_tracked())
+print("Average steps per day:", tracker.average_steps())
